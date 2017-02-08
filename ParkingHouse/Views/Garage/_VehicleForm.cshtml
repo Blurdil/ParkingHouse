@@ -1,0 +1,85 @@
+﻿@model ParkingHouse.Models.ViewModels.ParkingHouse.GarageCreateViewModel
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.Types)
+    </div>
+    <div>
+        @Html.EnumDropDownListFor(m => m.Types)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.Types)
+    </div>
+</div>
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.RegNr)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.RegNr)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.RegNr)
+    </div>
+</div>
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.Fabricate)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.Fabricate)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.Fabricate)
+    </div>
+</div>
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.FabricateModel)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.FabricateModel)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.FabricateModel)
+    </div>
+</div>
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.Color)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.Color)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.Color)
+    </div>
+</div>
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.NumberOfTyres)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.NumberOfTyres)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.NumberOfTyres)
+    </div>
+</div>
+
+<div>
+    <div>
+        @Html.DisplayNameFor(m => m.Payed)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.Payed)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.Payed)
+    </div>
+</div>

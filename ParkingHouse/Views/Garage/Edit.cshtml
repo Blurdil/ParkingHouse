@@ -1,0 +1,17 @@
+﻿@model ParkingHouse.Models.ViewModels.ParkingHouse.GarageCreateViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editera parkerad bil</h2>
+
+@using (Html.BeginForm("Edit", "Garage"))
+{
+    @Html.AntiForgeryToken();
+    @Html.Partial("_VehicleForm");
+
+    <input type="submit" value="Parkera Bil" />
+
+}
+

@@ -1,0 +1,56 @@
+﻿@model ParkingHouse.Models.ViewModels.ParkingHouse.GarageIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Parked Cars</h2>
+
+<input type="button" value="Checka in nytt fordon" onclick="CheckIn()" />
+
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(m => m.Fabricate).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(m => m.FabricateModel).ToString(), "Index", new {  orderBy = ViewBag.OrderBy})
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingTimeStart).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingTimeStop).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+        </th>
+    </tr>
+    @foreach(var item in Model.Vehicles)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.RegNr)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Fabricate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.FabricateModel)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ParkingTimeStart)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ParkingTimeStop)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id}) |
+                @Html.ActionLink("Checka ut", "CheckOut", new { id = item.Id}) |
+                @Html.ActionLink("Ändra", "Edit", new { id = item.Id})
+            </td>
+        </tr>
+
+    }
+</table>
+
