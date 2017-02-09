@@ -1,6 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 1px;
+    padding-bottom: 50px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,6 +23,21 @@ textarea {
     max-width: 280px;
 }
 
+.text-box, 
+#Types{
+    min-width: 100px;
+    max-width: 280px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.button { 
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 #popup {
     margin-top:20px;
     display: none;
@@ -35,6 +50,60 @@ textarea {
 }
 
 footer {
+    border-top: .5px dotted black;
+    text-align:center;
+    background-color: #ffffff;
     position: fixed;
     bottom: 0px;
+    width: 100%;
+}
+#commercial {
+    background-image: url("/Media/Image/graffiti.jpg");
+    height: 300px;
+    width: 100%;
+
+}
+.commercial-headline {
+    display:inline-block;
+    background-color: #000000;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+    right: 250px;
+    top: 30px;
+    z-index: 101;
+    box-shadow: #151515 7px 7px;
+    border-radius: 5px;
+}
+
+.commercial-headline h2 {
+    color: #ffffff;
+    text-shadow: #808080 2px 2px;
+    font-size: 24px;
+}
+
+.commercial-information {
+    z-index: 100;
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 20px;
+    position: absolute;
+    width: 230px;
+    /*-webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    transform: rotate(-15deg);*/
+    right: 120px;
+    box-shadow: #151515 7px 7px;
+    border-radius: 5px;
+}
+.commercial-information p{
+    line-height: 1.4em;
+    font-size: 18px;
 }

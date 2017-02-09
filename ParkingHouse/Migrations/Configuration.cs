@@ -31,8 +31,8 @@ namespace ParkingHouse.Migrations
 
             context.Garages.AddRange(new List<Garage>
             {
-                new Garage { Color = "Red", Fabricate = "Volvo", FabricateModel = "V70", NumberOfTyres= 4, ParkingTimeStart = DateTime.Now, ParkingTimeStop = DateTime.Now.AddHours(4), RegNr="AAA 001", VehicleType = "Car" },
-                new Garage { Color = "Yellow", Fabricate = "Saab", FabricateModel = "9000", NumberOfTyres= 4, ParkingTimeStart = DateTime.Now, ParkingTimeStop = DateTime.Now.AddHours(4), RegNr="AAA 002", VehicleType = "Car" }
+                new Garage { Color = "Red", Fabricate = "Volvo", FabricateModel = "V70", NumberOfTyres= 4, ParkingTimeStart = DateTime.Now, RegNr="AAA001", VehicleType = "Car" },
+                new Garage { Color = "Yellow", Fabricate = "Saab", FabricateModel = "9000", NumberOfTyres= 4, ParkingTimeStart = DateTime.Now, RegNr="AAA002", VehicleType = "Car" }
             }
             );
         }

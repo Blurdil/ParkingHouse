@@ -1,4 +1,5 @@
 ﻿using ParkingHouse.DAL;
+using ParkingHouse.Helper;
 using ParkingHouse.Models;
 using ParkingHouse.Models.ViewModels.Home;
 using ParkingHouse.Models.ViewModels.ParkingHouse;
@@ -16,15 +17,22 @@ namespace ParkingHouse.Controllers
 
         public ActionResult Index()
         {
-            GarageIndexViewModel givm = new GarageIndexViewModel();
             HomeIndexViewModel model = new HomeIndexViewModel();
-            model.NumberOfLots = NumberOfSlots.numberOfSlots;
+            model.NumberOfLots = parkingHouseHelper.numberOfParkingLots;
             var parkedCars = db.Garages.Count();
-            var lastParkedCars = db.Garages.OrderByDescending(x => x.ParkingTimeStart).Take(5).ToList();
-            model.Vehicles = givm.ListViewModel(lastParkedCars);
-            model.FreeLots = model.NumberOfLots - parkedCars;
+            model.FreeLots = parkingHouseHelper.numberOfParkingLots - parkedCars;
+            model.costHour = parkingHouseHelper.pricePerHour;
             return View(model);
         }
 
+        public ActionResult _Image()
+        {
+            HomeIndexViewModel model = new HomeIndexViewModel();
+            model.NumberOfLots = parkingHouseHelper.numberOfParkingLots;
+            var parkedCars = db.Garages.Count();
+            model.FreeLots = parkingHouseHelper.numberOfParkingLots - parkedCars;
+            model.costHour = parkingHouseHelper.pricePerHour;
+            return View(model);
+        }
     }
 }
