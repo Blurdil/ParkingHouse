@@ -6,24 +6,31 @@
 
 <h2>Parked Cars</h2>
 
-<input type="button" value="Checka in nytt fordon" onclick="CheckIn()" />
+<input type="button" value="Checka in nytt fordon" onclick="CheckIn()"/><br />
 
-<table>
+@using (Html.BeginForm())
+{
+    <input type="search" name="searchTerm" /> <p>Nuvarande sökning: @ViewBag.SearchTerm</p><br />
+    <input type="submit" value="Sök" />
+    <input type="button" value="Återställ" onclick="location.href='@Url.Action("Index")'" />
+}
+
+<table class="table">
     <tr>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+            @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = "RegNr"})
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(m => m.Fabricate).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+            @Html.ActionLink(Html.DisplayNameFor(m => m.Fabricate).ToString(), "Index", new { orderBy = "Fabricate" })
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(m => m.FabricateModel).ToString(), "Index", new {  orderBy = ViewBag.OrderBy})
+            @Html.ActionLink(Html.DisplayNameFor(m => m.FabricateModel).ToString(), "Index", new {  orderBy = "Fabricatemodel" })
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingTimeStart).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+            @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingTimeStart).ToString(), "Index", new { orderBy = "ParkingTimeStart" })
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingTimeStop).ToString(), "Index", new { orderBy = ViewBag.OrderBy})
+            @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingTimeStop).ToString(), "Index", new { orderBy = "ParkingTimeStop"})
         </th>
     </tr>
     @foreach(var item in Model.Vehicles)

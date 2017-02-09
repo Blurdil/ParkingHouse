@@ -2,3 +2,5 @@
 packages/
 ParkingHouse/bin/
 ParkingHouse/obj/
+/ParkingHouse/App_Data/parkingHouse.mdf
+/ParkingHouse/App_Data/parkingHouse_log.ldf

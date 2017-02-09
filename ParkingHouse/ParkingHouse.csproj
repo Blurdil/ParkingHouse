@@ -143,6 +143,7 @@
     <Compile Include="Models\ViewModels\Home\HomeIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingHouse\GarageCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingHouse\GarageIndexViewModel.cs" />
+    <Compile Include="Models\ViewModels\ParkingHouse\ReceiptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +200,7 @@
     <Content Include="Views\Garage\Details.cshtml" />
     <Content Include="Views\Garage\Edit.cshtml" />
     <Content Include="Views\Garage\CheckOut.cshtml" />
+    <Content Include="Views\Garage\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

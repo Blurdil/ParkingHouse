@@ -17,11 +17,41 @@ namespace ParkingHouse.Controllers
         private parkingContext db = new parkingContext();
 
         // GET: Garage
-        public ActionResult Index()
+        public ActionResult Index(string orderBy,string searchTerm)
         {
-            var vehicles = db.Garages.ToList();
+            IQueryable<Garage> query = db.Garages;
+            if (!string.IsNullOrEmpty(orderBy))
+            {
+                switch (orderBy.ToLower())
+                {
+                    case "regnr":
+                        query = query.OrderByDescending(x => x.RegNr);
+                        break;
+
+                    case "parkingtimestart":
+                        query = query.OrderBy(x => x.ParkingTimeStart);
+                        break;
+
+                    case "fabricate":
+                        query = query.OrderBy(x => x.Fabricate);
+                        break;
+
+                    case "fabricatemodel":
+                        query = query.OrderBy(x => x.FabricateModel);
+                        break;
+
+                    default:
+                        query = query.OrderBy(x => x.ParkingTimeStop);
+                        break;
+                }
+            }
+            if(!string.IsNullOrEmpty(searchTerm))
+            {
+                ViewBag.SearchTerm = searchTerm;
+                query = query.Where(x => x.RegNr.Contains(searchTerm) || x.Color.Contains(searchTerm) || x.Fabricate.Contains(searchTerm) || x.FabricateModel.Contains(searchTerm) || x.VehicleType.Contains(searchTerm));
+            }
             var model = new GarageIndexViewModel();
-            model.Vehicles = model.ListViewModel(vehicles);
+            model.Vehicles = model.ListViewModel(query.ToList());
 
             return View(model);
         }
@@ -113,6 +143,19 @@ namespace ParkingHouse.Controllers
             db.Garages.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Receipt(int? id)
+        {
+            if(id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var vehicle = db.Garages.Find(id);
+            ReceiptViewModel model = new ReceiptViewModel();
+            model = model.toViewModel(vehicle);
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)

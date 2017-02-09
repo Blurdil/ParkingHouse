@@ -1,0 +1,34 @@
+﻿@model ParkingHouse.Models.ViewModels.ParkingHouse.ReceiptViewModel
+
+<table>
+    <tr>
+        <th colspan="2">
+            Kvitto för parkering
+        </th>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.ReceiptNumber)</td>
+        <td>@Html.DisplayFor(m => m.ReceiptNumber)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.RegNr)</td>
+        <td>@Html.DisplayFor(m => m.RegNr)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.ParkingTimeStart)</td>
+        <td>@Html.DisplayFor(m => m.ParkingTimeStart)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.ParkingTimeStop)</td>
+        <td>@Html.DisplayFor(m => m.ParkingTimeStop)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Duration)</td>
+        <td>@Html.DisplayFor(m => m.Duration)</td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Payed)</td>
+        <td>@Html.DisplayFor(m => m.Payed)</td>
+    </tr>
+</table>
