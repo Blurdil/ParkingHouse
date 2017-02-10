@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ParkingHouse.Models.Entity;
+using ParkingHouse.Helper;
 
 namespace ParkingHouse.Models.ViewModels.ParkingHouse
 {
@@ -11,10 +12,11 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
         public int Id { get; set; }
         public string RegNr { get; set; }
         public DateTime ParkingTimeStart { get; set; }
-        public DateTime ParkingTimeStop { get; set; }
         public string Fabricate { get; set; }
         public string FabricateModel { get; set; }
         public IList<GarageIndexViewModel> Vehicles { get; set; }
+        public string Duration { get; set; }
+        public int Cost { get; set; }
 
         public List<GarageIndexViewModel> ListViewModel(List<Garage> vehicles)
         {
@@ -27,8 +29,9 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
                     Fabricate = vehicle.Fabricate,
                     RegNr = vehicle.RegNr,
                     ParkingTimeStart = vehicle.ParkingTimeStart,
-                    ParkingTimeStop = vehicle.ParkingTimeStop,
-                    FabricateModel = vehicle.FabricateModel
+                    FabricateModel = vehicle.FabricateModel,
+                    Duration = parkingHouseHelper.duration(vehicle.ParkingTimeStart),
+                    Cost = parkingHouseHelper.getPrice(vehicle.ParkingTimeStart),
                 };
                 model.Add(v);
             }

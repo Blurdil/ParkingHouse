@@ -41,7 +41,7 @@ namespace ParkingHouse.Controllers
                         break;
 
                     default:
-                        query = query.OrderBy(x => x.ParkingTimeStop);
+                        query = query.OrderByDescending(x => x.ParkingTimeStart);
                         break;
                 }
             }

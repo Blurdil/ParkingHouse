@@ -1,37 +1,35 @@
 ﻿@model ParkingHouse.Models.ViewModels.Home.HomeIndexViewModel
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <div class="col-md-4">
-        Buldozer Garage!
-    </div>
-</div>
+
 
 <div class="row">
-    <div class="col-md-4">
-        Lediga Platser: @Html.DisplayFor(m => m.FreeLots)<br />
+    <div class="col-md-3 parkCar">
+        @Html.Action("Create", "Garage")
+
+        @*Lediga Platser: @Html.DisplayFor(m => m.FreeLots)<br />
         Totalt antal platser: @Html.DisplayFor(m => m.NumberOfLots)
 
-        <input type="button" value="Checka in bil" onclick="CheckIn()"/>
+        <input type="button" value="Checka in bil" onclick="CheckIn()"/>*@
+    </div>
+    <div class="col-md-5">
+        <h2>Välkommen till vårat garage!</h2>
+        <p>Vi hälsar er välkommen till Bulldozer Garage, vi har för tillfället
+        @Html.DisplayFor(m => m.FreeLots) lediga. Betalning sker vid utchekning. Nuvarande pris är 
+        @Html.DisplayFor(m => m.costHour) per timme. Vi hoppas ni och eran bil kommer trivas.</p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        Lista på nästa 5 parkeringstider som går ut <br />
-        @foreach (var item in Model.Vehicles)
-        {
-            <ul>
-                <li>
-                    
-                    @Html.DisplayFor(m => item.ParkingTimeStop)
-                </li>
-            </ul>
-        }
+        <h2>Kontakt</h2>
+
+        <p>Vid funderingar var god kontakta våran kundtjänst: <br /><br />
+        Telefon: 075-Bulldozer<br />
+        E-Post: asfalt@bulldozer.nu<br />
+        Eller kom in till oss på <br />
+        Asfaltsvägen 23, Asfaltsstaden
+        </p>
  </div>
 </div>

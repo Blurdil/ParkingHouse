@@ -1,4 +1,5 @@
-﻿using ParkingHouse.Models.Entity;
+﻿using ParkingHouse.Helper;
+using ParkingHouse.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,8 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
         public int ReceiptNumber { get; set; }
         public string RegNr { get; set; }
         public DateTime ParkingTimeStart { get; set; }
-        public DateTime ParkingTimeStop { get; set; }
         public string Duration { get; set; }
-        public int Payed { get; set; }
+        public int Cost { get; set; }
 
         public int getReciptNumber()
         {
@@ -48,10 +48,9 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
             {
                 ReceiptNumber = getReciptNumber(),
                 ParkingTimeStart = vehicle.ParkingTimeStart,
-                ParkingTimeStop = vehicle.ParkingTimeStop,
-                Duration = getDuration(vehicle.ParkingTimeStart, vehicle.ParkingTimeStop),
+                Duration = parkingHouseHelper.duration(vehicle.ParkingTimeStart),
                 RegNr = vehicle.RegNr,
-                Payed = getPayed(vehicle.ParkingTimeStart, vehicle.ParkingTimeStop)
+                Cost = parkingHouseHelper.getPrice(vehicle.ParkingTimeStart),
             };
             return model;
         }

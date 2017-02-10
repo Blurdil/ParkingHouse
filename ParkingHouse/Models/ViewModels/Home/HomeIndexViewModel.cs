@@ -10,6 +10,7 @@ namespace ParkingHouse.Models.ViewModels.Home
     {
         public int NumberOfLots { get; set; }
         public int FreeLots { get; set; }
+        public int costHour { get; set; }
         public IList<GarageIndexViewModel> Vehicles { get; set; }
     }
 }
