@@ -14,6 +14,29 @@
 
 <div>
     <div>
+        @Html.DisplayNameFor(m => m.ParkingLotNr) : @Html.DisplayFor(m => m.ParkingLotNr)
+    </div>
+    <div>
+        @{ 
+            string message = "";
+            if (string.IsNullOrEmpty(Model.ParkingLotNr))
+            {
+                message = "Välj en ledig parkering";
+            }
+            else
+            {
+                message = "Flytta till annan plats";
+            }
+        }
+        @Html.DropDownListFor(m => m.ParkingLotNr, new SelectList(Model.freeParkings), message)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.ParkingLotNr)
+    </div>
+</div>
+
+<div>
+    <div>
         @Html.DisplayNameFor(m => m.RegNr)
     </div>
     <div>

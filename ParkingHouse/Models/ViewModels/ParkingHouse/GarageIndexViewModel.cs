@@ -31,7 +31,7 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
                     ParkingTimeStart = vehicle.ParkingTimeStart,
                     FabricateModel = vehicle.FabricateModel,
                     Duration = parkingHouseHelper.duration(vehicle.ParkingTimeStart),
-                    Cost = parkingHouseHelper.getPrice(vehicle.ParkingTimeStart),
+                    Cost = parkingHouseHelper.getPrice(vehicle.ParkingTimeStart, vehicle.GarageInformation),
                 };
                 model.Add(v);
             }

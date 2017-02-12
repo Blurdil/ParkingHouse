@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ParkingHouse.DAL;
+using ParkingHouse.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,9 +9,36 @@ namespace ParkingHouse.Helper
 {
     public static class parkingHouseHelper
     {
-        public static int numberOfParkingLots = 60;
+        private static parkingContext db = new parkingContext();
 
-        public static int pricePerHour = 30;
+        public static int numberOfParkingLots(GarageInformation garage)
+        {
+             return  garage.ParkingSlotsLevel * garage.Levels;
+        }
+        public static int pricePerHour(GarageInformation garage)
+        {
+           return garage.PricePerHour;
+        }
+
+        public static void  setGarageIDCookie(string guid)
+        {
+            HttpCookie GarageID = new HttpCookie("GarageID");
+            GarageID.Value = guid;
+            GarageID.Expires = DateTime.Now.AddDays(7);
+            HttpContext.Current.Response.Cookies.Set(GarageID);      
+        }
+
+        public static Guid getGarageID()
+        {
+            var cookie = HttpContext.Current.Request.Cookies.Get("GarageID");
+            if(cookie == null)
+            {
+                Guid guid = new Guid("061c595a-20c1-45c5-93f0-c169fdc2b4c1");
+                return guid;
+            }
+            var id = cookie.Value;
+            return Guid.Parse(id);
+        }
 
         public static string duration(DateTime startDate)
         {
@@ -20,15 +49,35 @@ namespace ParkingHouse.Helper
             return duration;
         }
 
-        public static int getPrice(DateTime startDate)
+        public static int getPrice(DateTime startDate, GarageInformation garage)
         {
-            int days = (startDate - DateTime.Now).Days;
-            int hours = (startDate - DateTime.Now).Hours;
-            int minutes = (startDate - DateTime.Now).Minutes;
-            int pricePerDay = 24 * parkingHouseHelper.pricePerHour;
-            int pricePerMinut = 60 / parkingHouseHelper.pricePerHour;
-            int toPay = (days * pricePerDay) + (hours * parkingHouseHelper.pricePerHour) + (minutes + pricePerMinut);
+            var pricePerHour = parkingHouseHelper.pricePerHour(garage);
+            int days = (DateTime.Now - startDate).Days;
+            int hours = (DateTime.Now - startDate).Hours;
+            int minutes = (DateTime.Now - startDate).Minutes;
+            int pricePerDay = 24 * pricePerHour;
+            int pricePerMinut = 60 / pricePerHour;
+            int toPay = (days * pricePerDay) + (hours * pricePerHour) + (minutes + pricePerMinut);
             return toPay;
+        }
+
+        public static List<string> getParkingLots(GarageInformation garage)
+        {
+            List<string> parkings = new List<string>();
+            for(var i = 0; i < garage.Levels; i++)
+            {
+                
+                for(var p = 0; p < garage.ParkingSlotsLevel; p++)
+                {
+                    string parking = "Våning: " + (i + 1) + " plats: " + (p +1);
+                    var check = garage.Garages.Where(x => x.ParkingLotNr == parking).SingleOrDefault();
+                    if (check == null)
+                    {
+                        parkings.Add(parking);
+                    }
+                }
+            }
+            return parkings;
         }
     }
 }

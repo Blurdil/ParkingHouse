@@ -58,7 +58,6 @@ footer {
     width: 100%;
 }
 #commercial {
-    background-image: url("/Media/Image/graffiti.jpg");
     height: 300px;
     width: 100%;
 
@@ -106,4 +105,10 @@ footer {
 .commercial-information p{
     line-height: 1.4em;
     font-size: 18px;
+}
+
+.garageDropDown {
+    position: fixed;
+    left: 10px;
+    top: 10px;
 }

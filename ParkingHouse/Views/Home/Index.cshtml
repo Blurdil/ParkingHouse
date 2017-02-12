@@ -17,19 +17,9 @@
         <input type="button" value="Checka in bil" onclick="CheckIn()"/>*@
     </div>
     <div class="col-md-5">
-        <h2>Välkommen till vårat garage!</h2>
-        <p>Vi hälsar er välkommen till Bulldozer Garage, vi har för tillfället
-        @Html.DisplayFor(m => m.FreeLots) lediga. Betalning sker vid utchekning. Nuvarande pris är 
-        @Html.DisplayFor(m => m.costHour) per timme. Vi hoppas ni och eran bil kommer trivas.</p>
+        @Html.Action("TextBlock", "Page")
     </div>
     <div class="col-md-4">
-        <h2>Kontakt</h2>
-
-        <p>Vid funderingar var god kontakta våran kundtjänst: <br /><br />
-        Telefon: 075-Bulldozer<br />
-        E-Post: asfalt@bulldozer.nu<br />
-        Eller kom in till oss på <br />
-        Asfaltsvägen 23, Asfaltsstaden
-        </p>
+        @Html.Action("ContactBlock", "Page")
  </div>
 </div>

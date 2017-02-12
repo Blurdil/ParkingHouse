@@ -38,5 +38,10 @@ namespace ParkingHouse.Models.Entity
         [Required]
         [Display(Name = "Model")]
         public string FabricateModel { get; set; }
+
+        [StringLength(25)]
+        public string ParkingLotNr { get; set; }
+
+        public GarageInformation GarageInformation { get; set;}
     }
 }

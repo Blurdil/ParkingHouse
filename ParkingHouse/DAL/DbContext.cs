@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParkingHouse.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace ParkingHouse.DAL
         {
         }
 
-        public System.Data.Entity.DbSet<ParkingHouse.Models.Entity.Garage> Garages { get; set; }
+        public DbSet<Garage> Garages { get; set; }
+        public DbSet<GarageInformation> GarageInformation { get; set; }
+        public DbSet<PageInformation> Page { get; set; }
     }
 }
