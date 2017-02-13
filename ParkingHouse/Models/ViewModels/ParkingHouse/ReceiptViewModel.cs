@@ -50,7 +50,7 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
                 ParkingTimeStart = vehicle.ParkingTimeStart,
                 Duration = parkingHouseHelper.duration(vehicle.ParkingTimeStart),
                 RegNr = vehicle.RegNr,
-                Cost = parkingHouseHelper.getPrice(vehicle.ParkingTimeStart),
+                Cost = parkingHouseHelper.getPrice(vehicle.ParkingTimeStart, vehicle.GarageInformation),
             };
             return model;
         }

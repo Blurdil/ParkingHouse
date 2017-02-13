@@ -6,3 +6,4 @@ ParkingHouse/obj/
 /ParkingHouse/App_Data/parkingHouse_log.ldf
 ParkingHouse/App_Data/DbContext-20170208191847_log.ldf
 ParkingHouse/App_Data/DbContext-20170208191847.mdf
+ParkingHouse/Migrations/

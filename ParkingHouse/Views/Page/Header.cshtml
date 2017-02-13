@@ -1,0 +1,15 @@
+﻿@model ParkingHouse.Models.ViewModels.Page.HeaderViewModel
+
+<div class="jumbotron" id="commercial" style="background-image: url(@Model.ImagePath);">
+    <div class="commercial-headline">
+        <h2>@Html.DisplayFor(m => m.BanerHeadLine)</h2>
+    </div>
+    <div class="commercial-information">
+        <h3>Välkomen till oss! </h3>
+        <p>
+            @Html.DisplayFor(m => m.NumberOfLots) parkeringplatser.<br />
+            @Html.DisplayFor(m => m.FreeLots) lediga!
+        </p>
+        <p>@Html.DisplayFor(m => m.costHour) kr / Timmen!</p>
+    </div>
+</div>

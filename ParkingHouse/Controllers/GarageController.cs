@@ -9,17 +9,27 @@ using System.Web.Mvc;
 using ParkingHouse.DAL;
 using ParkingHouse.Models.Entity;
 using ParkingHouse.Models.ViewModels.ParkingHouse;
+using ParkingHouse.Helper;
 
 namespace ParkingHouse.Controllers
 {
     public class GarageController : Controller
     {
         private parkingContext db = new parkingContext();
+        private Guid _Id;
+        public GarageInformation _garage;
+        public GarageController()
+        {
+            _Id = parkingHouseHelper.getGarageID();
+            _garage = db.GarageInformation.Find(_Id);
+        }
 
         // GET: Garage
         public ActionResult Index(string orderBy,string searchTerm)
         {
-            IQueryable<Garage> query = db.Garages;
+            //IQueryable<Garage> query = db.Garages;
+            //query.Where(x => x.GarageInformation == _garage);
+            IQueryable<Garage> query = _garage.Garages.AsQueryable();
             if (!string.IsNullOrEmpty(orderBy))
             {
                 switch (orderBy.ToLower())
@@ -51,6 +61,7 @@ namespace ParkingHouse.Controllers
                 query = query.Where(x => x.RegNr.Contains(searchTerm) || x.Color.Contains(searchTerm) || x.Fabricate.Contains(searchTerm) || x.FabricateModel.Contains(searchTerm) || x.VehicleType.Contains(searchTerm));
             }
             var model = new GarageIndexViewModel();
+
             model.Vehicles = model.ListViewModel(query.ToList());
 
             return View(model);
@@ -58,7 +69,9 @@ namespace ParkingHouse.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            GarageCreateViewModel model = new GarageCreateViewModel();
+            model.freeParkings = parkingHouseHelper.getParkingLots(_garage);
+            return View(model);
         }
 
         [HttpPost]
@@ -66,7 +79,8 @@ namespace ParkingHouse.Controllers
         public ActionResult Create(GarageCreateViewModel model)
         {
             var vehicle = model.ToEntity(model);
-            db.Garages.Add(vehicle);
+            _garage.Garages.Add(vehicle);
+            //db.Garages.Add(vehicle);
             db.SaveChanges();
             // return RedirectToAction("Index");
             return Redirect(Request.UrlReferrer.ToString());
@@ -82,7 +96,9 @@ namespace ParkingHouse.Controllers
             if (vechicle != null)
             {
                 GarageCreateViewModel model = new GarageCreateViewModel();
+                
                 model = model.ToViewmodel(vechicle);
+                model.freeParkings = parkingHouseHelper.getParkingLots(_garage);
                 return View(model);
             }
             return View();

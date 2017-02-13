@@ -1,0 +1,6 @@
+﻿@model ParkingHouse.Models.ViewModels.Page.GarageDropDownViewModel
+
+
+<div class="garageDropDown">
+    @Html.DropDownListFor(m => m.Value, new SelectList(Model.List, "Value", "Name" ), "Välj garage")
+</div>

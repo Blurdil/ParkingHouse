@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ParkingHouse.Models.ViewModels.ParkingHouse
 {
@@ -15,6 +16,7 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
         [Required]
         [Display(Name = "Registrerings Nummer")]
         [RegularExpression("^[A-Z]{3} [0-9]{3}", ErrorMessage = "Måste vara av format AAA 111")]
+        [Remote("CheckRegNr", "Validate")]
         public string RegNr { get; set; }
 
         [Display(Name ="Färg")]
@@ -35,6 +37,10 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
         public string Duration { get; set; }
         [Display(Name = "Kostnad")]
         public int Cost { get; set; }
+
+        public string ParkingLotNr { get; set; }
+
+        public List<string> freeParkings { get; set; }
 
         public DateTime payedTime(int amount)
         {
@@ -85,7 +91,8 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
                 ParkingTimeStart = DateTime.Now,
                 VehicleType = model.Types.ToString(),
                 Fabricate = model.Fabricate,
-                FabricateModel = model.FabricateModel
+                FabricateModel = model.FabricateModel,
+                ParkingLotNr = model.ParkingLotNr,
             };
             return vehicle;
         }
@@ -102,7 +109,8 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
                 Fabricate = model.Fabricate,
                 FabricateModel = model.FabricateModel,
                 Duration = parkingHouseHelper.duration(model.ParkingTimeStart),
-                Cost = parkingHouseHelper.getPrice(model.ParkingTimeStart),
+                Cost = parkingHouseHelper.getPrice(model.ParkingTimeStart, model.GarageInformation),
+                ParkingLotNr = model.ParkingLotNr,
             };
 
             switch (model.VehicleType)

@@ -30,6 +30,19 @@ function CreateReceipt(id) {
     })
 }
 
+$('.garageDropDown').change(function () {
+    var id = $('option:selected', this).val();
+    $.ajax({
+        url: '/page/ChangeID',
+        type: 'POST',
+        data: { Id: id },
+        success: function () {
+            location.reload();
+        }
+    });
+})
+}
+
 $(document).click(function (event) {
     var div = $(event.target).closest('form');
     console.log(div)

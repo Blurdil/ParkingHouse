@@ -130,6 +130,8 @@
     <Compile Include="Controllers\GarageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="DAL\DbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,10 +157,40 @@
     <Compile Include="Migrations\201702092148264_Update3.Designer.cs">
       <DependentUpon>201702092148264_Update3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702120955516_Update4.cs" />
+    <Compile Include="Migrations\201702120955516_Update4.Designer.cs">
+      <DependentUpon>201702120955516_Update4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702121017516_Update5.cs" />
+    <Compile Include="Migrations\201702121017516_Update5.Designer.cs">
+      <DependentUpon>201702121017516_Update5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702121031068_Update6.cs" />
+    <Compile Include="Migrations\201702121031068_Update6.Designer.cs">
+      <DependentUpon>201702121031068_Update6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702121207200_Update7.cs" />
+    <Compile Include="Migrations\201702121207200_Update7.Designer.cs">
+      <DependentUpon>201702121207200_Update7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702121854518_Update8.cs" />
+    <Compile Include="Migrations\201702121854518_Update8.Designer.cs">
+      <DependentUpon>201702121854518_Update8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702122103516_Update9.cs" />
+    <Compile Include="Migrations\201702122103516_Update9.Designer.cs">
+      <DependentUpon>201702122103516_Update9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entity\Garage.cs" />
+    <Compile Include="Models\Entity\GarageInformation.cs" />
+    <Compile Include="Models\Entity\PageInformation.cs" />
     <Compile Include="Models\ViewModels\Home\HomeIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\Information\InformationIndexViewModel.cs" />
+    <Compile Include="Models\ViewModels\Page\ContactBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\Page\GarageDropDownViewModel.cs" />
+    <Compile Include="Models\ViewModels\Page\HeaderViewModel.cs" />
+    <Compile Include="Models\ViewModels\Page\TextBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingHouse\GarageCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingHouse\GarageIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingHouse\ReceiptViewModel.cs" />
@@ -182,6 +214,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Media\Image\abandoned-house.jpg" />
     <Content Include="Media\Image\graffiti.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -220,11 +253,18 @@
     <Content Include="Views\Garage\Edit.cshtml" />
     <Content Include="Views\Garage\CheckOut.cshtml" />
     <Content Include="Views\Garage\Receipt.cshtml" />
+    <Content Include="Views\Page\GarageDropDown.cshtml" />
+    <Content Include="Views\Page\TextBlock.cshtml" />
+    <Content Include="Views\Page\ContactBlock.cshtml" />
+    <Content Include="Views\Page\Header.cshtml" />
     <Content Include="Views\Home\_Image.cshtml" />
     <Content Include="Views\Information\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Information\" />
+    <Folder Include="Views\Validate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -247,6 +287,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702092148264_Update3.resx">
       <DependentUpon>201702092148264_Update3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702120955516_Update4.resx">
+      <DependentUpon>201702120955516_Update4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702121017516_Update5.resx">
+      <DependentUpon>201702121017516_Update5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702121031068_Update6.resx">
+      <DependentUpon>201702121031068_Update6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702121207200_Update7.resx">
+      <DependentUpon>201702121207200_Update7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702121854518_Update8.resx">
+      <DependentUpon>201702121854518_Update8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702122103516_Update9.resx">
+      <DependentUpon>201702122103516_Update9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
