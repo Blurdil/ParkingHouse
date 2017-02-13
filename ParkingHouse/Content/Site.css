@@ -7,6 +7,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    width:980px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -23,10 +24,10 @@ textarea {
     max-width: 280px;
 }
 
-.text-box, 
+.text-box, .dropDown, 
 #Types{
-    min-width: 100px;
-    max-width: 280px;
+    height: 30px;
+    width: 200px;
     border: 1px solid black;
     border-radius: 3px;
 }
@@ -121,4 +122,31 @@ footer {
 
 .information p {
     padding: 10px;
+}
+
+.garageDropDown {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+
+.ParkingSlot {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 1px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.ParkingSlot.unFree {
+    background-color: #000000;
+    color: #b0afaf;
+}
+
+.center{
+    
+    margin: 0 auto;
 }

@@ -6,6 +6,15 @@
 
 <h2>CheckOut</h2>
 
+@using (Html.BeginForm("Delete", "Garage", new { id = Model.id }))
+{
+    @Html.AntiForgeryToken();
+    <input type="submit" value="Checka ut" />
+    <input type="Button" value="Skapa kvitto" onClick="CreateReceipt(@Model.id)" />
+}
+
+
+
 <div>
     <div>
         @Html.DisplayNameFor(m => m.Types)
@@ -78,10 +87,3 @@
     </div>
 </div>
 
-@using (Html.BeginForm("Delete", "Garage", new { id = Model.id }))
-{
-    @Html.AntiForgeryToken();
-    <input type="submit" value="Checka ut" /> 
-}
-
-    <input type="Button" value="Skapa kvitto" onClick ="CreateReceipt(@Model.id)"/>

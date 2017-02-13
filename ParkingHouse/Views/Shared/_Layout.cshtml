@@ -29,6 +29,16 @@
 
     @Html.Action("Header", "Page")
     @Html.Action("GarageDropDown", "Page")
+    @using (Html.BeginForm("Index", "Garage"))
+    {
+        <div class="fixedCenterTop">
+            <input type="button" value="Checka in nytt fordon" class="button" onclick="CheckIn()" />
+            <input type="search" name="searchTerm" class="text-box" />
+            <input type="submit" value="Sök" class="button" />
+            <input type="button" value="Återställ" class="button" onclick="location.href='@Url.Action("Index")'" />
+
+        </div>
+    }
 
     <div id="popup" class="popup">
         
@@ -38,7 +48,8 @@
     </div>
         <footer>
             <p>
-            | @Html.ActionLink("Startsida", "Index", "Home") | @Html.ActionLink("Lista över parkerade bilar", "Index", "Garage") |   &copy; @DateTime.Now.Year - Buldozer Garage
+            | @Html.ActionLink("Startsida", "Index", "Home") | @Html.ActionLink("Lista över parkerade bilar", "Index", "Garage") |
+                @Html.ActionLink("Parkerings Översikt", "ParkingLot", "Garage")  |  &copy; @DateTime.Now.Year - Buldozer Garage
                 </p>
         </footer>
     

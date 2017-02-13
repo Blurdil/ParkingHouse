@@ -1,0 +1,14 @@
+﻿@model ParkingHouse.Models.ViewModels.Information.LotOverviewViewModel
+
+@{
+    ViewBag.Title = "Översikt över parkeringsplatser på level " + Model.Level;
+}
+    
+    @foreach (var item in Model.Lots)
+    {
+        @Html.Raw(item)
+    }
+
+
+
+

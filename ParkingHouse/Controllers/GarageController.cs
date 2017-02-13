@@ -10,6 +10,7 @@ using ParkingHouse.DAL;
 using ParkingHouse.Models.Entity;
 using ParkingHouse.Models.ViewModels.ParkingHouse;
 using ParkingHouse.Helper;
+using ParkingHouse.Models.ViewModels.Information;
 
 namespace ParkingHouse.Controllers
 {
@@ -171,6 +172,13 @@ namespace ParkingHouse.Controllers
             var vehicle = db.Garages.Find(id);
             ReceiptViewModel model = new ReceiptViewModel();
             model = model.toViewModel(vehicle);
+            return View(model);
+        }
+
+        public ActionResult Parkinglot(int level = 1)
+        {
+            LotOverviewViewModel model = new LotOverviewViewModel();
+            model = model.toViewModel(_garage, level);
             return View(model);
         }
 

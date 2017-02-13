@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ParkingHouse.Models.ViewModels.ParkingHouse.GarageIndexViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParkingTimeStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fabricate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FabricateModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingTimeStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fabricate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FabricateModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

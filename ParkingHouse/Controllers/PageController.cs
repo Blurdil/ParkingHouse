@@ -37,7 +37,6 @@ namespace ParkingHouse.Controllers
         [ChildActionOnly]
         public ActionResult GarageDropDown()
         {
-            var test = Session["GarageID"];
             GarageDropDownViewModel model = new GarageDropDownViewModel();
             var list = model.toViewModel(db.GarageInformation.OrderBy(x => x.ParkingHouseName).ToList());
             return View(list);

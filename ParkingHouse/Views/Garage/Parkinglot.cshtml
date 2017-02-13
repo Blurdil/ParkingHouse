@@ -1,0 +1,18 @@
+﻿@model ParkingHouse.Models.ViewModels.Information.LotOverviewViewModel
+@{
+    ViewBag.Title = "Parkinglot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @Html.DisplayNameFor(m => m.Levels)
+    @Html.DropDownListFor(m => m.Level, new SelectList(Model.Levels), null, new { @class = "levelSelect dropDown" })
+</div>
+<hr />
+<div id="parkingOverview">
+    <div class="center">
+        @Html.Action("LotOverview", "Information")
+
+    </div>
+
+    </div>
+

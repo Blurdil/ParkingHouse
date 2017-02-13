@@ -28,7 +28,7 @@
                 message = "Flytta till annan plats";
             }
         }
-        @Html.DropDownListFor(m => m.ParkingLotNr, new SelectList(Model.freeParkings), message)
+        @Html.DropDownListFor(m => m.ParkingLotNr, new SelectList(Model.freeParkings), message, new { @class = "dropDown" })
     </div>
     <div>
         @Html.ValidationMessageFor(m => m.ParkingLotNr)

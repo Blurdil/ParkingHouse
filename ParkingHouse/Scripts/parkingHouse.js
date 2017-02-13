@@ -1,5 +1,5 @@
 ﻿function CheckIn() {
-    var url = 'Garage/Create'
+    var url = '../Garage/Create'
     $.ajax({
         url: url,
         Type: 'GET',
@@ -16,7 +16,6 @@ function closePopup() {
 }
 
 function CreateReceipt(id) {
-    console.log(id);
     var url = '../Receipt'
     $.ajax({
         url: url,
@@ -41,11 +40,22 @@ $('.garageDropDown').change(function () {
         }
     });
 })
-}
+
+$('.levelSelect').change(function () {
+    var level = $('option:selected', this).val();
+    $.ajax({
+        url: '/Information/LotOverview',
+        type: 'POST',
+        data: {level : level},
+        success:function(data){
+            $('#parkingOverview').html(data);
+        }
+    })
+});
+
 
 $(document).click(function (event) {
     var div = $(event.target).closest('form');
-    console.log(div)
     if (!$(event.target).hasClass('popup')) {
         if (!$(event.target).closest('form').hasClass('postForm')) {
             $(".popup").hide();

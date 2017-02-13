@@ -42,11 +42,11 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
 
         public List<string> freeParkings { get; set; }
 
-        public DateTime payedTime(int amount)
-        {
-            DateTime parkTime = DateTime.Now.AddMinutes(amount);
-            return parkTime;
-        }
+        //public DateTime payedTime(int amount)
+        //{
+        //    DateTime parkTime = DateTime.Now.AddMinutes(amount);
+        //    return parkTime;
+        //}
 
         public int getNumberOfTyres(GarageCreateViewModel vehicle)
         {
@@ -109,7 +109,7 @@ namespace ParkingHouse.Models.ViewModels.ParkingHouse
                 Fabricate = model.Fabricate,
                 FabricateModel = model.FabricateModel,
                 Duration = parkingHouseHelper.duration(model.ParkingTimeStart),
-                Cost = parkingHouseHelper.getPrice(model.ParkingTimeStart, model.GarageInformation),
+               // Cost = parkingHouseHelper.getPrice(model.ParkingTimeStart, model.GarageInformation),
                 ParkingLotNr = model.ParkingLotNr,
             };
 
