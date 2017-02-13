@@ -29,3 +29,13 @@ function CreateReceipt(id) {
         }
     })
 }
+
+$(document).click(function (event) {
+    var div = $(event.target).closest('form');
+    console.log(div)
+    if (!$(event.target).hasClass('popup')) {
+        if (!$(event.target).closest('form').hasClass('postForm')) {
+            $(".popup").hide();
+        }
+    }
+});

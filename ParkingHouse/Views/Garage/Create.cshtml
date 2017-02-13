@@ -3,7 +3,7 @@
 <h2>Parkera ny bil</h2>
 
 
-@using (Html.BeginForm("Create", "Garage"))
+@using (Html.BeginForm("Create", "Garage", FormMethod.Post , new { @class = "postForm" }))
 {
     @Html.AntiForgeryToken();
     @Html.Partial("_VehicleForm");

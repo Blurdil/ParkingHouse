@@ -1,0 +1,13 @@
+﻿@model ParkingHouse.Models.ViewModels.Information.InformationIndexViewModel
+
+<div class="information">
+    <p>
+    @Html.DisplayNameFor(m => m.numberOfVehicles): @Html.DisplayFor(m => m.numberOfVehicles)
+    @Html.DisplayNameFor(m => m.Cars): @Html.DisplayFor(m => m.Cars)
+    @Html.DisplayNameFor(m => m.MotorCycle): @Html.DisplayFor(m => m.MotorCycle)
+    @Html.DisplayNameFor(m => m.Truck): @Html.DisplayFor(m => m.Truck)
+    @Html.DisplayNameFor(m => m.Buss): @Html.DisplayFor(m => m.Buss)
+    @Html.DisplayNameFor(m => m.TotalNumberOfTyres): @Html.DisplayFor(m => m.TotalNumberOfTyres)
+    @Html.DisplayNameFor(m => m.CashEarned): @string.Format("{0:C}" , Model.CashEarned) @*Html.DisplayFor(m => m.CashEarned))*@
+        </p>
+</div>

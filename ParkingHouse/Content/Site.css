@@ -38,15 +38,16 @@ textarea {
     border-radius: 5px;
 }
 
-#popup {
-    margin-top:20px;
+.popup {
+    padding: 15px;
+    top:10px;
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 200;
-    background-color: lightgray;
-    display: inline-block;
-    width: 300px;
-    margin-left: 35%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    margin-left: 30%;
+    
 }
 
 footer {
@@ -59,7 +60,7 @@ footer {
 }
 #commercial {
     background-image: url("/Media/Image/graffiti.jpg");
-    height: 300px;
+    height: 400px;
     width: 100%;
 
 }
@@ -106,4 +107,18 @@ footer {
 .commercial-information p{
     line-height: 1.4em;
     font-size: 18px;
+}
+
+.fixedCenterTop {
+    position: absolute;
+    top: 360px;
+    left: 30%;
+}
+
+.information {
+    text-align: center;
+}
+
+.information p {
+    padding: 10px;
 }

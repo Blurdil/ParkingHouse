@@ -17,7 +17,7 @@ namespace ParkingHouse.Controllers
             var vehicle = db.Garages.ToList();
             InformationIndexViewModel model = new InformationIndexViewModel();
             model = model.toViewModel(vehicle);
-            return View();
+            return View(model);
         }
     }
 }

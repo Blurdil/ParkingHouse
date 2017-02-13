@@ -221,10 +221,10 @@
     <Content Include="Views\Garage\CheckOut.cshtml" />
     <Content Include="Views\Garage\Receipt.cshtml" />
     <Content Include="Views\Home\_Image.cshtml" />
+    <Content Include="Views\Information\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Information\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
