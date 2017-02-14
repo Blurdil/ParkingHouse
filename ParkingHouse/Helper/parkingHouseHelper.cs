@@ -122,7 +122,7 @@ namespace ParkingHouse.Helper
                 }
                 else
                 {
-                    parking = "<div class='ParkingSlot unFree'>Plats: " + (p + 1) + "<div class='vehicleInfo'>" + check.RegNr + "</div></div>";
+                    parking = "<div class='ParkingSlot unFree' onClick='openInfo(regNr=" + check.RegNr + ")'>Plats: " + (p + 1) + "<div class='vehicleInfo'>" + check.RegNr + "</div></div>";
                 }
                 parkings.Add(parking);
             }

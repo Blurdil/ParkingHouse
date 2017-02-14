@@ -62,3 +62,7 @@ $(document).click(function (event) {
         }
     }
 });
+
+function openInfo(regNr) {
+    alert(regNr);
+}
